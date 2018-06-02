@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface NotebookService {
     List<Notebook> getAllNotebooks();
+
     NotebookDto getById(Integer id);
 }

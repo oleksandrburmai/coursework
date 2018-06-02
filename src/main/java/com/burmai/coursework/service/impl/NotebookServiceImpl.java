@@ -6,7 +6,6 @@ import com.burmai.coursework.repository.NotebookRepository;
 import com.burmai.coursework.service.NotebookService;
 import com.burmai.coursework.service.mapper.NotebookMapper;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

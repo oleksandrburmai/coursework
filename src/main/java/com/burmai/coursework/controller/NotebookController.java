@@ -4,10 +4,8 @@ import com.burmai.coursework.dto.NotebookDto;
 import com.burmai.coursework.model.Cpu;
 import com.burmai.coursework.model.Notebook;
 import com.burmai.coursework.repository.CpuRepository;
-import com.burmai.coursework.repository.NotebookRepository;
 import com.burmai.coursework.service.impl.NotebookServiceImpl;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,7 +26,7 @@ public class NotebookController {
     }
 
     @GetMapping("/noteall")
-    public String notebookAll(){
+    public String notebookAll() {
         StringBuilder result = new StringBuilder();
         for (Notebook notebook : notebookService.getAllNotebooks()) {
             result.append(notebook.toString()).append("<br>");
