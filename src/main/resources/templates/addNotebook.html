@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new notebook</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/notebookList">Головна сторінка<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/addNotebook">Добавити новий ноутбук</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<form style="margin-left: 2rem;margin-top: 1rem" th:action="@{/addNotebook/new}" th:object="${Notebook}" method="post">
+    <div class="form-group row">
+        <label for="inputName" class="col-sm-2 col-form-label"> Назва ноутбука</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" th:field="*{name}" id="inputName" placeholder="Назва ноутбука"
+                   style="width: 20%">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputPrice" class="col-sm-2 col-form-label"> Ціна</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputPrice" th:field="*{price}" placeholder="Ціна"
+                   style="width: 20%">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputScreenDiagonal" class="col-sm-2 col-form-label"> Діаголь екрану</label>
+        <select class="custom-select mr-sm-1" id="inputScreenDiagonal" th:field="*{screenDiagonal}"
+                style="width: 16.5%; margin-left: 1%">
+            <option value="13.3">13.3</option>
+            <option value="14">14</option>
+            <option value="15.6">15.6</option>
+            <option value="17.3">17.3</option>
+        </select>
+    </div>
+    <div class="form-group row">
+        <label for="inputScreenType" class="col-sm-2 col-form-label"> Тип екрану</label>
+        <select class="custom-select mr-sm-1" id="inputScreenType" th:field="*{screenType}"
+                style="width: 16.5%; margin-left: 1%">
+            <option value="IPS">IPS</option>
+            <option value="Retina">Retina</option>
+            <option value="TN">TN</option>
+        </select>
+    </div>
+    <div class="form-group row">
+        <label for="inputScreenResolution" class="col-sm-2 col-form-label"> Розширення екрану</label>
+        <select class="custom-select mr-sm-1" id="inputScreenResolution" th:field="*{screenResolution}"
+                style="width: 16.5%; margin-left: 1%">
+            <option value="1366x768">1366x768</option>
+            <option value="1600x900">1600x900</option>
+            <option value="Full HD">Full HD</option>
+        </select>
+    </div>
+    <div class="form-group row">
+        <label for="inputScreenCover" class="col-sm-2 col-form-label"> Покритя екрану</label>
+        <select class="custom-select mr-sm-1" id="inputScreenCover" th:field="*{screenCover}"
+                style="width: 16.5%; margin-left: 1%">
+            <option value="Матове">Матове</option>
+            <option value="Глянцеве">Глянцеве</option>
+        </select>
+    </div>
+    <div class="form-group row">
+        <label for="inputSsd" class="col-sm-2 col-form-label"> SSD</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputSsd" placeholder="Розмір" th:field="*{ssd}"
+                   style="width: 20%">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputHdd" class="col-sm-2 col-form-label"> HDD</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputHdd" placeholder="Розмір" th:field="*{hdd}"
+                   style="width: 20%">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputCpu" class="col-sm-2 col-form-label"> CPU</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputCpu" placeholder="" th:field="*{cpuByCpuId}"
+                   style="width: 20%">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputGpu" class="col-sm-2 col-form-label"> GPU</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputGpu" placeholder="" th:field="*{gpuByGpuId}"
+                   style="width: 20%">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputRam" class="col-sm-2 col-form-label"> RAM</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputRam" placeholder="Розмір" th:field="*{ram}"
+                   style="width: 20%">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputWeight" class="col-sm-2 col-form-label"> Вага ноутбука</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputWeight" placeholder="кг" th:field="*{weight}"
+                   style="width: 20%">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <input type="submit" class="btn btn-primary">
+        </div>
+    </div>
+</form>
+</body>
+</html>

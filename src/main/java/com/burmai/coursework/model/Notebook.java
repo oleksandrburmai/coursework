@@ -6,13 +6,15 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 
+import static javax.persistence.GenerationType.SEQUENCE;
+
 @Entity
 @Table(name = "notebook")
 @Getter
 @Setter
 public class Notebook implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = SEQUENCE)
     private int id;
     private String name;
     private int price;
@@ -23,6 +25,7 @@ public class Notebook implements Serializable {
     private String screenResolution;
     private String screenCover;
     private double weight;
+    private Integer ram;
     @ManyToOne
     @JoinColumn(name = "cpu_id")
     private Cpu cpuByCpuId;
